@@ -2,283 +2,126 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Track your income and expenses in one place." />
-    <title>Pocket — Expense Tracker</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="app-shell">
-        <aside class="sidebar">
-            <a class="brand" href="#" aria-label="Pocket home">
-                <span class="brand-mark" aria-hidden="true">p</span>
-                <span>Pocket<span class="brand-dot">.</span></span>
-            </a>
 
-            <div class="sidebar-label">WORKSPACE</div>
-            <nav class="main-nav" aria-label="Main navigation">
-                <a class="nav-link active" href="#overview"><span class="nav-icon">◫</span> Overview</a>
-                <a class="nav-link" href="#transactions"><span class="nav-icon">↕</span> Transactions</a>
-                <a class="nav-link" href="#budgets"><span class="nav-icon">◷</span> Budgets <span
-                        class="nav-soon">Soon</span></a>
-                <a class="nav-link" href="#reports"><span class="nav-icon">▥</span> Reports <span
-                        class="nav-soon">Soon</span></a>
-            </nav>
+    <div class="container">
 
-            <div class="sidebar-bottom">
-                <div class="upgrade-card">
-                    <div class="upgrade-icon">✦</div>
-                    <h3>Small steps add up.</h3>
-                    <p>Build better money habits, one day at a time.</p>
-                    <div class="upgrade-progress"><span></span></div>
-                    <small>Your financial journey</small>
-                </div>
-                <a class="nav-link settings-link" href="#settings"><span class="nav-icon">⚙</span> Settings</a>
-                <div class="profile">
-                    <div class="avatar">AD</div>
-                    <div class="profile-info"><strong>Alex Doe</strong><span>Personal account</span></div>
-                    <span class="profile-menu">···</span>
-                </div>
+        <h1 class="title">Expense Tracker</h1>
+
+        <!-- Summary Cards -->
+        <section class="summary">
+
+            <div class="summary-card balance">
+                <h3>Total Balance</h3>
+                <p id="balance">₹0</p>
             </div>
-        </aside>
 
-        <main class="main-content" id="overview">
-            <header class="topbar">
-                <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
-                <div class="topbar-actions">
-                    <span class="today-pill"><span class="status-dot"></span> Personal finances</span>
-                    <button class="icon-button notification-button" type="button"
-                        aria-label="Notifications">♧<i></i></button>
-                </div>
-            </header>
+            <div class="summary-card income">
+                <h3>Total Income</h3>
+                <p id="income">₹0</p>
+            </div>
 
-            <section class="welcome-row">
-                <div>
-                    <p class="eyebrow">YOUR MONEY, AT A GLANCE</p>
-                    <h1>Good evening, Alex <span class="wave">✳</span></h1>
-                    <p class="subheading">Here’s what’s happening with your money.</p>
-                </div>
-                <button class="button button-primary" type="button" id="top-add-button"><span>＋</span> Add
-                    transaction</button>
-            </section>
+            <div class="summary-card expense">
+                <h3>Total Expenses</h3>
+                <p id="expenses">₹0</p>
+            </div>
 
-            <section class="summary-grid" aria-label="Financial summary">
-                <article class="summary-card balance-card">
-                    <div class="card-topline"><span class="card-label">Total balance</span><span
-                            class="summary-icon balance-icon">◈</span></div>
-                    <div class="amount" id="total-balance">₹24,680<span class="decimal">.00</span></div>
-                    <div class="card-foot"><span class="trend positive">↗ 8.2%</span><span>vs. last month</span></div>
-                    <div class="mini-chart balance-chart" aria-hidden="true">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                </article>
-                <article class="summary-card">
-                    <div class="card-topline"><span class="card-label">Total income</span><span
-                            class="summary-icon income-icon">↙</span></div>
-                    <div class="amount" id="total-income">₹32,500<span class="decimal">.00</span></div>
-                    <div class="card-foot"><span class="trend positive">↗ 4.6%</span><span>vs. last month</span></div>
-                    <div class="mini-chart income-chart" aria-hidden="true">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                </article>
-                <article class="summary-card">
-                    <div class="card-topline"><span class="card-label">Total expenses</span><span
-                            class="summary-icon expense-icon">↗</span></div>
-                    <div class="amount" id="total-expenses">₹7,820<span class="decimal">.00</span></div>
-                    <div class="card-foot"><span class="trend negative">↗ 2.1%</span><span>vs. last month</span></div>
-                    <div class="mini-chart expense-chart" aria-hidden="true">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                </article>
-            </section>
+        </section>
 
-            <section class="content-grid">
-                <article class="panel transaction-panel" id="transactions">
-                    <div class="panel-heading">
-                        <div>
-                            <h2>Recent transactions</h2>
-                            <p>A clear view of your money movement.</p>
-                        </div>
-                        <button class="button button-quiet" type="button" id="view-all-button">View all
-                            <span>→</span></button>
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Add Transaction Form -->
+            <section class="form-section">
+
+                <h2>Add Transaction</h2>
+
+                <form id="transaction-form">
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="e.g. Grocery shopping" required>
                     </div>
-                    <div class="toolbar">
-                        <label class="search-box"><span aria-hidden="true">⌕</span><input type="search"
-                                id="search-input" placeholder="Search transactions..." /></label>
-                        <label class="select-wrap"><span class="sr-only">Filter transactions by type</span><select
-                                id="type-filter">
-                                <option value="all">All types</option>
-                                <option value="income">Income</option>
+
+                    <div class="form-group">
+                        <label for="amount">Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="Enter amount" min="0.01" step="0.01" required>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <select id="type">
                                 <option value="expense">Expense</option>
-                            </select><span class="select-chevron">⌄</span></label>
-                        <label class="select-wrap category-select"><span class="sr-only">Filter by
-                                category</span><select id="category-filter">
-                                <option value="all">All categories</option>
-                                <option>Food & Dining</option>
-                                <option>Shopping</option>
-                                <option>Transport</option>
-                                <option>Salary</option>
-                                <option>Freelance</option>
-                                <option>Bills</option>
-                                <option>Other</option>
-                            </select><span class="select-chevron">⌄</span></label>
+                                <option value="income">Income</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="General">General</option>
+                                <option value="Food">Food</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Salary">Salary</option>
+                                <option value="Bills">Bills</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
                     </div>
 
-                    <div class="transaction-table-wrap">
-                        <table class="transaction-table">
-                            <thead>
-                                <tr>
-                                    <th>TRANSACTION</th>
-                                    <th>CATEGORY</th>
-                                    <th>DATE</th>
-                                    <th class="amount-heading">AMOUNT</th>
-                                    <th><span class="sr-only">Actions</span></th>
-                                </tr>
-                            </thead>
-                            <tbody id="transaction-list">
-                                <tr class="transaction-row">
-                                    <td>
-                                        <div class="transaction-name"><span
-                                                class="transaction-symbol food-symbol">☕</span><span><strong>Morning
-                                                    coffee</strong><small>Local café</small></span></div>
-                                    </td>
-                                    <td><span class="category-tag food-tag">Food & Dining</span></td>
-                                    <td class="date-cell">Today, 9:41 AM</td>
-                                    <td class="money negative-money">−₹180.00</td>
-                                    <td><button class="row-menu" type="button"
-                                            aria-label="More actions for Morning coffee">···</button></td>
-                                </tr>
-                                <tr class="transaction-row">
-                                    <td>
-                                        <div class="transaction-name"><span
-                                                class="transaction-symbol salary-symbol">↙</span><span><strong>Monthly
-                                                    salary</strong><small>Acme Studio</small></span></div>
-                                    </td>
-                                    <td><span class="category-tag salary-tag">Salary</span></td>
-                                    <td class="date-cell">Today, 9:00 AM</td>
-                                    <td class="money positive-money">+₹28,000.00</td>
-                                    <td><button class="row-menu" type="button"
-                                            aria-label="More actions for Monthly salary">···</button></td>
-                                </tr>
-                                <tr class="transaction-row">
-                                    <td>
-                                        <div class="transaction-name"><span
-                                                class="transaction-symbol transport-symbol">↗</span><span><strong>Cab
-                                                    ride</strong><small>City commute</small></span></div>
-                                    </td>
-                                    <td><span class="category-tag transport-tag">Transport</span></td>
-                                    <td class="date-cell">Yesterday</td>
-                                    <td class="money negative-money">−₹240.00</td>
-                                    <td><button class="row-menu" type="button"
-                                            aria-label="More actions for Cab ride">···</button></td>
-                                </tr>
-                                <tr class="transaction-row">
-                                    <td>
-                                        <div class="transaction-name"><span
-                                                class="transaction-symbol shopping-symbol">◇</span><span><strong>New
-                                                    headphones</strong><small>Online purchase</small></span></div>
-                                    </td>
-                                    <td><span class="category-tag shopping-tag">Shopping</span></td>
-                                    <td class="date-cell">Oct 14, 2026</td>
-                                    <td class="money negative-money">−₹1,499.00</td>
-                                    <td><button class="row-menu" type="button"
-                                            aria-label="More actions for New headphones">···</button></td>
-                                </tr>
-                                <tr class="transaction-row">
-                                    <td>
-                                        <div class="transaction-name"><span
-                                                class="transaction-symbol freelance-symbol">✳</span><span><strong>Website
-                                                    project</strong><small>Freelance payment</small></span></div>
-                                    </td>
-                                    <td><span class="category-tag freelance-tag">Freelance</span></td>
-                                    <td class="date-cell">Oct 13, 2026</td>
-                                    <td class="money positive-money">+₹4,500.00</td>
-                                    <td><button class="row-menu" type="button"
-                                            aria-label="More actions for Website project">···</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-footer"><span>Showing <strong id="shown-count">5</strong> of <strong
-                                id="total-count">12</strong> transactions</span>
-                        <div class="pagination"><button type="button" aria-label="Previous page"
-                                disabled>←</button><button class="page-current" type="button"
-                                aria-current="page">1</button><button type="button">2</button><button
-                                type="button">3</button><button type="button" aria-label="Next page">→</button></div>
-                    </div>
-                </article>
+                    <button type="submit" class="add-btn">
+                        Add Transaction
+                    </button>
 
-                <aside class="right-column">
-                    <article class="panel add-panel" id="add-transaction-panel">
-                        <div class="panel-heading compact-heading">
-                            <div>
-                                <h2>Add transaction</h2>
-                                <p>Record money in or out.</p>
-                            </div><span class="add-panel-icon">＋</span>
-                        </div>
-                        <form id="transaction-form">
-                            <fieldset class="type-toggle">
-                                <legend class="sr-only">Transaction type</legend><label
-                                    class="type-option selected"><input type="radio" name="transaction-type"
-                                        value="expense" checked /><span>− Expense</span></label><label
-                                    class="type-option"><input type="radio" name="transaction-type"
-                                        value="income" /><span>＋ Income</span></label>
-                            </fieldset>
-                            <label class="field-label" for="transaction-title">Transaction name</label>
-                            <input class="form-control" type="text" id="transaction-title" name="title"
-                                placeholder="e.g. Grocery shopping" required />
-                            <div class="form-row">
-                                <div class="form-field"><label class="field-label" for="transaction-amount">Amount
-                                        (₹)</label>
-                                    <div class="amount-input"><span>₹</span><input type="number" id="transaction-amount"
-                                            name="amount" placeholder="0.00" min="0.01" step="0.01" required /></div>
-                                </div>
-                                <div class="form-field"><label class="field-label"
-                                        for="transaction-category">Category</label>
-                                    <div class="select-control"><select id="transaction-category" name="category"
-                                            required>
-                                            <option value="" disabled selected>Select</option>
-                                            <option>Food & Dining</option>
-                                            <option>Shopping</option>
-                                            <option>Transport</option>
-                                            <option>Salary</option>
-                                            <option>Freelance</option>
-                                            <option>Bills</option>
-                                            <option>Other</option>
-                                        </select><span>⌄</span></div>
-                                </div>
-                            </div>
-                            <label class="field-label" for="transaction-date">Date</label>
-                            <input class="form-control date-control" type="date" id="transaction-date" name="date"
-                                required />
-                            <label class="field-label" for="transaction-note">Note <span
-                                    class="optional">(optional)</span></label>
-                            <textarea class="form-control note-control" id="transaction-note" name="note" rows="2"
-                                placeholder="Add a little detail..."></textarea>
-                            <button class="button button-primary submit-button" type="submit"><span>＋</span> Save
-                                transaction</button>
-                            <p class="form-hint"><span>♧</span> Your transactions stay on this device.</p>
-                        </form>
-                    </article>
-                    <article class="tip-card">
-                        <div class="tip-icon">✦</div>
-                        <div><strong>A little tip</strong>
-                            <p>Small daily expenses can add up. Keep tracking to understand your spending habits.</p>
-                        </div>
-                    </article>
-                </aside>
+                </form>
+
             </section>
-            <footer class="page-footer"><span>Made for a clearer view of your money.</span><span>POCKET <span
-                        class="footer-dot">•</span> PERSONAL FINANCE</span></footer>
+
+            <!-- Transactions List -->
+            <section class="transactions-section">
+
+                <h2>Transactions</h2>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="transaction-list">
+                            <!-- JavaScript will add transactions here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="empty-message" class="empty-message">
+                    No transactions yet.
+                </p>
+
+            </section>
+
         </main>
+
     </div>
+
     <script src="script.js"></script>
 </body>
 
